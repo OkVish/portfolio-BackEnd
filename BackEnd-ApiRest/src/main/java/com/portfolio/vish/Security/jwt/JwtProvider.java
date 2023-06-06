@@ -1,6 +1,6 @@
 package com.portfolio.vish.Security.jwt;
 
-import com.portfolio.vish.Security.Entity.UsuarioPrincipal;
+import com.portfolio.vish.Security.Model.UsuarioPrincipal;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -42,19 +42,19 @@ public class JwtProvider {
          Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
          return true;
      } catch (MalformedJwtException e){
-     logger.error("token mal formado");
+     logger.error("Token mal formado");
      }
      catch (UnsupportedJwtException e){
      logger.error("Token no soportado");
      }
      catch (ExpiredJwtException e){
-     logger.error("Token expirado");
+     logger.error(" El Token expirado");
      }
      catch (IllegalArgumentException e){
      logger.error("Token vacio");
      }
      catch (SignatureException e){
-     logger.error("Firma no válida");
+     logger.error("Firma inválida");
      }
      return false;
      }

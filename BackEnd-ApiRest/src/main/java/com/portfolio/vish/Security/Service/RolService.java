@@ -2,7 +2,7 @@
 package com.portfolio.vish.Security.Service;
 
 
-import com.portfolio.vish.Security.Entity.Rol;
+import com.portfolio.vish.Security.Model.Rol;
 import com.portfolio.vish.Security.Enums.RolNombre;
 import com.portfolio.vish.Security.Repository.IRolRepository;
 

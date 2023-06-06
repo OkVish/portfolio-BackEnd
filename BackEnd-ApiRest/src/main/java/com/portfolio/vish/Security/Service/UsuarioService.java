@@ -1,7 +1,7 @@
 
 package com.portfolio.vish.Security.Service;
 
-import com.portfolio.vish.Security.Entity.Usuario;
+import com.portfolio.vish.Security.Model.Usuario;
 import com.portfolio.vish.Security.Repository.IUsuarioRepository;
 import jakarta.transaction.Transactional;
 import java.util.Optional;
@@ -29,7 +29,7 @@ public class UsuarioService {
     return iusuarioRepository.existsByNombreUsuario(email);
     }
     
-    public void save(com.portfolio.vish.Security.Entity.Usuario usuario){
+    public void save(com.portfolio.vish.Security.Model.Usuario usuario){
     iusuarioRepository.save(usuario);
     }
 

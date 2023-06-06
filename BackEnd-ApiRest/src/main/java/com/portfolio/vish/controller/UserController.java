@@ -9,24 +9,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.security.access.prepost.PreAuthorize;
 /**
  *
  * @author Vish
  */
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("api/user")
+@CrossOrigin(origins = {"", "http://localhost:4200"})
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @GetMapping("/list")
+    @PreAuthorize ("hasRole('ADMIN')")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
+     @PreAuthorize ("hasRole('ADMIN')")
     public ResponseEntity<User> getUserById(@PathVariable int id) {
         Optional<User> user = userService.getUserById(id);
         return user.map(value -> ResponseEntity.ok().body(value))
@@ -34,11 +38,13 @@ public class UserController {
     }
 
     @PostMapping("/save")
+    @PreAuthorize ("hasRole('ADMIN')")
     public User saveUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
 
     @DeleteMapping("/delete/{id}")
+    @PreAuthorize ("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUser(@PathVariable int id) {
         userService.deleteUser(id);

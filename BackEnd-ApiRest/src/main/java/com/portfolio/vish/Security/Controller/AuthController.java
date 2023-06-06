@@ -5,8 +5,8 @@ package com.portfolio.vish.Security.Controller;
 import com.portfolio.vish.Security.Dto.JwtDto;
 import com.portfolio.vish.Security.Dto.LoginUsuario;
 import com.portfolio.vish.Security.Dto.NuevoUsuario;
-import com.portfolio.vish.Security.Entity.Rol;
-import com.portfolio.vish.Security.Entity.Usuario;
+import com.portfolio.vish.Security.Model.Rol;
+import com.portfolio.vish.Security.Model.Usuario;
 import com.portfolio.vish.Security.Enums.RolNombre;
 import com.portfolio.vish.Security.Service.RolService;
 import com.portfolio.vish.Security.Service.UsuarioService;
@@ -45,17 +45,17 @@ public class AuthController {
     @Autowired
             JwtProvider jwtProvider;
     
-    @PostMapping("/nuevo")
+    @PostMapping("/new")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
     if(bindingResult.hasErrors())
-        return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(new Mensaje("Error o datos invalidos"), HttpStatus.BAD_REQUEST);
 
     if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
-        return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(new Mensaje("El nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
     
     
     if(usuarioService.existsByEmail(nuevoUsuario.getEmail()))
-        return new ResponseEntity(new Mensaje("Ese nombre de email ya existe"), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(new Mensaje("El nombre de email ya existe"), HttpStatus.BAD_REQUEST);
         
     Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),nuevoUsuario.getEmail(), passwordEncoder.encode(nuevoUsuario.getPassword()));
    
