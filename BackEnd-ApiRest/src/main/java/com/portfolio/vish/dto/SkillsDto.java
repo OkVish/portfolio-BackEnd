@@ -2,27 +2,24 @@
 package com.portfolio.vish.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 
 /**
  *
  * @author Vish
  */
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class SkillsDto {
     @NotBlank
      private String nombreskill;
     @NotBlank
      private String porcentajeskill;
     @NotBlank
-     private String imgurl; 
-
-    public SkillsDto() {
-    }
-
-    public SkillsDto(String nombreskill, String porcentajeskill, String imgurl) {
-        this.nombreskill = nombreskill;
-        this.porcentajeskill = porcentajeskill;
-        this.imgurl = imgurl;
-    }
+     private String imgurl;
 
     public String getNombreskill() {
         return nombreskill;

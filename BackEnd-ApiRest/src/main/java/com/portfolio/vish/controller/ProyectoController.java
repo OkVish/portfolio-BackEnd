@@ -8,22 +8,22 @@ package com.portfolio.vish.controller;
 
 import com.portfolio.vish.model.Proyecto;
 import com.portfolio.vish.service.ProyectoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/api/proyecto")
+@CrossOrigin(origins = {"", "http://localhost:4200"})
+@RequiredArgsConstructor
 public class ProyectoController {
     @Autowired
     private final ProyectoService projectService;
-
-    public ProyectoController(ProyectoService projectService) {
-        this.projectService = projectService;
-    }
 
     @GetMapping("/list")
     public ResponseEntity<List<Proyecto>> getAllProyecto(){

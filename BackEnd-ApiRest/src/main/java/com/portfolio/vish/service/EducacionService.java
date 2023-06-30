@@ -4,22 +4,21 @@ package com.portfolio.vish.service;
 import com.portfolio.vish.model.Educacion;
 import com.portfolio.vish.repository.EducacionRepository;
 import jakarta.transaction.Transactional;
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *
  * @author Vish
  */
 @Service
+@RequiredArgsConstructor
 @Transactional
 public class EducacionService {
 
     private final EducacionRepository educacionRepository;
-
-    public EducacionService(EducacionRepository educacionRepository) {
-        this.educacionRepository = educacionRepository;
-    }
 
 
     public Educacion addEducacion(Educacion educacion){

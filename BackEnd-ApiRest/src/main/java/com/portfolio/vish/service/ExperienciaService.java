@@ -4,8 +4,10 @@ package com.portfolio.vish.service;
 import com.portfolio.vish.model.Experiencia;
 import com.portfolio.vish.repository.ExperienciaRepository;
 import jakarta.transaction.Transactional;
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 /**
@@ -14,13 +16,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ExperienciaService {
 
    private final ExperienciaRepository experienciaRespository;
-
-    public ExperienciaService(ExperienciaRepository experienciaRespository) {
-        this.experienciaRespository = experienciaRespository;
-    }
 
     public Experiencia addExperiencia(Experiencia experiencia){
         return experienciaRespository.save(experiencia);

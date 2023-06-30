@@ -2,11 +2,17 @@
 package com.portfolio.vish.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+;
 
 /**
  *
  * @author Vish
  */
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class ExperienciaDto {
      @NotBlank
    private String nombreexp;
@@ -18,17 +24,6 @@ public class ExperienciaDto {
    private String inicioexp;
      @NotBlank
    private String finexp;
-
-    public ExperienciaDto() {
-    }
-
-    public ExperienciaDto(String nombreexp, String descripcionexp, String badges, String inicioexp, String finexp) {
-        this.nombreexp = nombreexp;
-        this.descripcionexp = descripcionexp;
-        this.badges = badges;
-        this.inicioexp = inicioexp;
-        this.finexp = finexp;
-    }
 
     public String getNombreexp() {
         return nombreexp;

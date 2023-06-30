@@ -2,11 +2,18 @@
 package com.portfolio.vish.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author Vish
  */
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class EducacionDto {
      @NotBlank
     private String nombreedu;
@@ -16,16 +23,6 @@ public class EducacionDto {
     private String cursoedu;
        @NotBlank
     private String urledu;
-
-    public EducacionDto() {
-    }
-
-    public EducacionDto(String nombreedu, String lugaredu, String cursoedu, String urledu) {
-        this.nombreedu = nombreedu;
-        this.lugaredu = lugaredu;
-        this.cursoedu = cursoedu;
-        this.urledu = urledu;
-    }
 
     public String getNombreedu() {
         return nombreedu;

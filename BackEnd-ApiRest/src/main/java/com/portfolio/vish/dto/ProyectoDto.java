@@ -2,11 +2,17 @@
 package com.portfolio.vish.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 
 /**
  *
  * @author Vish
  */
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProyectoDto {
     @NotBlank
     private String nombrepr;
@@ -16,16 +22,6 @@ public class ProyectoDto {
     private String urlpr;
     @NotBlank
     private String imgurl;
- 
-    public ProyectoDto() {
-    }
-
-    public ProyectoDto(String nombrepr, String urlgit, String urlpr, String imgurl) {
-        this.nombrepr = nombrepr;
-        this.urlgit = urlgit;
-        this.urlpr = urlpr;
-        this.imgurl = imgurl;
-    }
 
     public String getNombrepr() {
         return nombrepr;

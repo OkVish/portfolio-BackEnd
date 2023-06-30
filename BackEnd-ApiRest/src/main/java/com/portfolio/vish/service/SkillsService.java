@@ -5,9 +5,10 @@ package com.portfolio.vish.service;
 import com.portfolio.vish.model.Skills;
 import com.portfolio.vish.repository.SkillsRepository;
 import jakarta.transaction.Transactional;
-import java.util.List;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *
@@ -15,13 +16,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class SkillsService {
 
     private final SkillsRepository skillsRepository;
-
-    public SkillsService(SkillsRepository skillsRepository) {
-        this.skillsRepository = skillsRepository;
-    }
 
 
     public Skills addSkills(Skills skills){

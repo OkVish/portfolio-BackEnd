@@ -4,8 +4,10 @@ package com.portfolio.vish.service;
 import com.portfolio.vish.model.Proyecto;
 import com.portfolio.vish.repository.ProyectoRepository;
 import jakarta.transaction.Transactional;
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *
@@ -13,12 +15,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ProyectoService {
   private final ProyectoRepository proyectoRespository;
-
-    public ProyectoService( ProyectoRepository proyectoRespository) {
-        this.proyectoRespository = proyectoRespository;
-    }
 
     public Proyecto addProyecto(Proyecto proyecto){
         return proyectoRespository.save(proyecto);
