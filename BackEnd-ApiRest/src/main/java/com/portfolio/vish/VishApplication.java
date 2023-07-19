@@ -2,6 +2,8 @@ package com.portfolio.vish;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class VishApplication {
@@ -15,6 +17,14 @@ public class VishApplication {
 "                  _| |_ | | | || |( (___ | || |_| |  | \\_____| |_| || |   | |   ( (/ /( (___ | |__( ( | || | | |( (/ / | | | || |__( (/ /                  \n" +
 "                 (_____)|_| |_||_| \\____)|_| \\___/    \\______)\\___/ |_|   |_|    \\____)\\____) \\___)\\_||_||_|_|_| \\____)|_| |_| \\___)\\____)                 \n" +
 "                                                                                                                                                          ");
+	}
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+			}
+		};
 	}
 
 }
